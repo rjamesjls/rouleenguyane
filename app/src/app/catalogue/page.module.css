@@ -1,0 +1,101 @@
+.cataloguePage { padding-top: var(--navbar-h); }
+.pageHeader { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 32px 0 24px; }
+.pageTitle { font-size: 1.75rem; font-weight: 800; color: var(--text); }
+.pageSubtitle { color: var(--text-secondary); margin-top: 4px; }
+.headerActions { display: flex; align-items: center; gap: 12px; }
+
+.layout { display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start; padding-bottom: 64px; }
+
+.sidebar {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px;
+  position: sticky; top: calc(var(--navbar-h) + 16px);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.sidebarHeader { display: flex; align-items: center; justify-content: space-between; }
+.sidebarHeader h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+.filterGroup { display: flex; flex-direction: column; gap: 10px; }
+.typeGrid { display: flex; flex-wrap: wrap; gap: 6px; }
+.typeChip {
+  padding: 6px 12px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600;
+  background: var(--bg-subtle); border: 1.5px solid var(--border); color: var(--text-secondary);
+  transition: var(--transition); cursor: pointer;
+}
+.typeChip:hover { border-color: var(--primary); color: var(--primary); }
+.typeChipActive { background: var(--primary-bg) !important; border-color: var(--primary) !important; color: var(--primary) !important; }
+
+.priceRange { display: flex; align-items: center; gap: 12px; }
+.rangeInput { flex: 1; accent-color: var(--primary); }
+.priceValue { font-size: 0.875rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+.results { min-height: 400px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.filterToggle { display: none; }
+.backdrop, .closeFilters { display: none; }
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 240px 1fr; gap: 20px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .backdrop { display: block; position: fixed; inset: var(--navbar-h) 0 0; background: #0008; z-index: 899; }
+  .closeFilters { display: block; font-size: 1.6rem; color: var(--text); padding: 4px 10px; }
+  .layout { grid-template-columns: 1fr; }
+  .filterToggle { display: flex; }
+  .sidebar {
+    position: fixed; top: var(--navbar-h); left: 0; right: 0; bottom: 0;
+    z-index: 900; overflow-y: auto; border-radius: 0;
+    transform: translateX(-100%); transition: transform 0.3s ease;
+    max-width: 320px;
+  }
+  .sidebarOpen { transform: translateX(0); }
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* --- Filtre « couleurs disponibles » --- */
+.filterCount {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.colorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.colorChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.colorChip:hover { border-color: var(--primary); }
+
+.colorChipActive {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  font-weight: 600;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.colorCount {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}

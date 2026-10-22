@@ -1,0 +1,595 @@
+.page {
+  padding-bottom: 64px;
+  background: var(--bg-subtle);
+  min-height: 100vh;
+}
+
+/* --- Bandeau de couverture --- */
+.cover {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 300px at 15% 120%, rgba(26, 122, 74, 0.55), transparent 70%),
+    linear-gradient(115deg, var(--primary-dark) 0%, var(--primary) 45%, var(--primary-light) 100%);
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Voile dégradé vers le bas : l'avatar et le nom restent lisibles quelle que
+   soit la photo chargée, y compris très claire. */
+.coverVoile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+}
+
+/* Trame diagonale discrète : donne de la matière sans image à charger. */
+.coverMotif {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.06) 0 2px,
+    transparent 2px 16px
+  );
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent);
+}
+
+/* --- En-tête profil --- */
+/*
+ * Seul l'avatar déborde sur le bandeau : le décalage négatif est porté par
+ * l'avatar, pas par l'en-tête. Le nom et les puces restent ainsi toujours sur
+ * le fond de page — indispensable depuis que la couverture peut être une photo
+ * quelconque, sur laquelle un texte foncé deviendrait illisible.
+ */
+.entete {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 4px;
+}
+
+.avatarAnneau {
+  position: relative;
+  margin-top: -104px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  padding: 5px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-lg);
+}
+
+.avatarImg {
+  width: 132px;
+  height: 132px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(140deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatarImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pastilleVerif {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--success);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--bg-card);
+}
+
+.identite {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 6px;
+}
+
+.identiteHaut {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nom {
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.chipPro {
+  padding: 4px 11px;
+  border-radius: var(--radius-full);
+  background: var(--primary-bg);
+  color: var(--primary);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sousNom {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.reperes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.repere {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Bloc note, aligné à droite de l'en-tête */
+.blocNote {
+  flex-shrink: 0;
+  min-width: 132px;
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.blocNoteValeur {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.blocNoteEtoiles {
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.etoilesVides { color: var(--border-strong); }
+
+.blocNoteLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+.blocNoteVide {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* --- Chiffres --- */
+.statsGrid {
+  display: grid;
+  /* Grille explicite plutôt qu'auto-fit : avec 4 indicateurs, le remplissage
+     automatique produisait 3 colonnes + 1 carte orpheline. 2×2 reste équilibré
+     à toutes les largeurs intermédiaires. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1080px) {
+  .statsGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 460px) {
+  .statsGrid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.statCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+/* Liseré coloré : distingue les indicateurs sans surcharger. */
+.statCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--teinte, var(--primary));
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.statIcon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: color-mix(in srgb, var(--teinte, var(--primary)) 12%, transparent);
+}
+
+.statTexte { min-width: 0; }
+
+.statValue {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.statSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+/* --- Ancres --- */
+.ancres {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.ancre {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 18px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.ancre:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.ancreCount {
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* --- Sections --- */
+.section {
+  margin-bottom: 48px;
+  scroll-margin-top: calc(var(--navbar-h) + 16px);
+}
+
+.sectionEntete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sectionBadge {
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.vehiclesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+/* --- États vides --- */
+.videCarte {
+  padding: 48px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px dashed var(--border-strong);
+  text-align: center;
+}
+
+.videIcone {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.videCarte h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.videCarte p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* --- Résumé des notes --- */
+.resumeNotes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+.resumeGlobal {
+  text-align: center;
+  padding-right: 40px;
+  border-right: 1px solid var(--border);
+}
+
+.resumeNote {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.resumeCount {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.resumeBarres {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.barreLigne {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+}
+
+.barreLabel {
+  width: 32px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.barreFond {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.barreRemplie {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--accent), #FBBF24);
+  transition: width .4s ease;
+}
+
+.barreCount {
+  width: 24px;
+  text-align: right;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Étoiles --- */
+.stars {
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.starsVides { color: var(--border-strong); }
+
+/* --- Formulaire d'avis --- */
+.formAvis {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 22px;
+}
+
+.formAvis h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.noteInfo {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.etoilesSaisie {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.etoileBtn {
+  background: none;
+  border: none;
+  padding: 0 3px;
+  font-size: 2.1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--border-strong);
+  transition: color .12s, transform .12s;
+}
+
+.etoileBtn:hover { transform: scale(1.15); }
+
+.etoileActive { color: var(--accent); }
+
+.noteChoisie {
+  margin-left: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* --- Liste des avis --- */
+.avisListe {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.avisItem {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.avisItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.avisEntete {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avisAuteur {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.avisMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.avisTexte {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* --- Adaptatif --- */
+@media (max-width: 860px) {
+  .entete {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .avatarAnneau { margin-top: -92px; }
+  .identite { padding-bottom: 0; }
+  .identiteHaut, .reperes { justify-content: center; }
+  .blocNote { width: 100%; max-width: 260px; }
+  .resumeGlobal {
+    padding-right: 0;
+    border-right: none;
+    width: 100%;
+  }
+  .resumeNotes { gap: 22px; }
+}
+
+@media (max-width: 520px) {
+  .cover { height: 150px; }
+  .avatarImg { width: 104px; height: 104px; font-size: 2.5rem; }
+  .ancre { padding: 11px 13px; font-size: 0.875rem; }
+}

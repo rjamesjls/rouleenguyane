@@ -1,0 +1,44 @@
+.bloc {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: var(--bg-card);
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ok {
+  color: var(--success);
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+/* `touch-action: none` est indispensable : sans lui, le geste de signature
+   fait défiler la page sur mobile au lieu de tracer. */
+.canvas {
+  display: block;
+  width: 100%;
+  height: 150px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.aide {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}

@@ -1,0 +1,261 @@
+/* HERO */
+/*
+ * Hauteur plafonnée : l'image de fond fait 2,7:1. Dans un hero de 92vh —
+ * presque carré — `object-fit: cover` n'en laissait voir qu'un quart de la
+ * largeur, et les véhicules sortaient du cadre. En bornant à 660px, la section
+ * se rapproche du format de l'image et en montre l'essentiel.
+ */
+.hero {
+  position: relative; min-height: min(86vh, 660px); display: flex;
+  /* Contenu aligné en haut plutôt que centré : le texte remonte vers la
+     navigation et laisse la partie basse de l'image aux véhicules. */
+  align-items: flex-start;
+  overflow: hidden; padding: 104px 0 64px;
+}
+.heroBg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.heroBgCircle1 {
+  position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,43,0.12) 0%, transparent 70%);
+  top: -200px; right: -100px;
+}
+.heroBgCircle2 {
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,122,74,0.08) 0%, transparent 70%);
+  bottom: -100px; left: -50px;
+}
+.heroBgGrid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px; opacity: 0.4;
+}
+.heroContent { position: relative; z-index: 1; max-width: 860px; }
+.heroBadge { margin-bottom: 24px; display: inline-flex; font-size: 0.875rem; }
+.heroTitle {
+  font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.15;
+  letter-spacing: -1px; margin-bottom: 20px; color: var(--text);
+}
+.heroSubtitle {
+  font-size: 1.1rem; color: var(--text-secondary); max-width: 560px;
+  line-height: 1.7; margin-bottom: 40px;
+}
+
+/* Search Form */
+.searchForm {
+  display: flex; align-items: stretch;
+  background: var(--bg-card); border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);
+  overflow: hidden; margin-bottom: 40px;
+}
+.searchField {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 14px 20px; flex: 1; min-width: 0;
+}
+.searchField label {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-muted);
+}
+.searchInput, .searchSelect {
+  border: none; background: transparent; outline: none;
+  font-size: 0.9rem; color: var(--text); font-weight: 500;
+  padding: 0; cursor: pointer; width: 100%;
+}
+.searchSelect { appearance: none; }
+.searchDivider { width: 1px; background: var(--border); margin: 12px 0; flex-shrink: 0; }
+.searchBtn {
+  margin: 8px; border-radius: var(--radius-lg) !important;
+  padding: 0 28px !important; white-space: nowrap; flex-shrink: 0;
+}
+
+/* Stats */
+.heroStats {
+  display: flex; align-items: center; gap: 24px;
+  flex-wrap: wrap;
+}
+.heroStat { display: flex; flex-direction: column; }
+.heroStat strong { font-size: 1.4rem; font-weight: 900; color: var(--text); }
+.heroStat span { font-size: 0.8rem; color: var(--text-muted); }
+.heroStatDiv { width: 1px; height: 32px; background: var(--border); }
+
+/* Categories */
+.catGrid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+}
+.catCard {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 20px 12px; border-radius: var(--radius-lg);
+  background: var(--bg-card); border: 1.5px solid var(--border);
+  text-align: center; transition: var(--transition); text-decoration: none;
+}
+.catCard:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow); }
+.catIcon { width: 48px; height: 48px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+.catLabel { font-weight: 700; font-size: 0.875rem; color: var(--text); }
+.catDesc { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Section headers */
+.sectionHeader { margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+.sectionTitle { font-size: 1.75rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+.sectionSubtitle { color: var(--text-secondary); margin-top: 6px; }
+.sectionCenter { text-align: center; margin-bottom: 48px; }
+
+.vehiclesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* How it works */
+.howSection { background: var(--bg-subtle); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+.steps::before {
+  content: ''; position: absolute; top: 32px; left: 15%; right: 15%; height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0.3;
+}
+.step { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.stepNum {
+  font-size: 0.75rem; font-weight: 800; color: var(--primary);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.stepIcon {
+  width: 64px; height: 64px; border-radius: var(--radius-full);
+  background: var(--primary-bg); font-size: 1.75rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--primary); position: relative; z-index: 1;
+}
+.step h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.step p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* CTA Section */
+.ctaCard {
+  position: relative; border-radius: var(--radius-xl); overflow: hidden;
+  background: linear-gradient(135deg, #0A1628, #1A2A4A);
+  padding: 64px; color: white;
+}
+.ctaBg {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 50%, rgba(255,107,43,0.25) 0%, transparent 60%);
+}
+.ctaContent { position: relative; z-index: 1; max-width: 600px; }
+.ctaContent h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+.ctaContent p { color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 24px; font-size: 1.05rem; }
+.ctaFeatures { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+.ctaFeatures span { font-size: 0.875rem; color: rgba(255,255,255,0.85); }
+.ctaBtns { display: flex; gap: 16px; flex-wrap: wrap; }
+.ctaBtns .btn-outline { border-color: rgba(255,255,255,0.3); color: white; }
+.ctaBtns .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+/* Villes */
+.villesGrid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.villeChip {
+  padding: 10px 20px; background: var(--bg-card); border: 1.5px solid var(--border);
+  border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary); transition: var(--transition); text-decoration: none;
+}
+.villeChip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .catGrid { grid-template-columns: repeat(3, 1fr); }
+  .vehiclesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .searchForm { flex-direction: column; border-radius: var(--radius-lg); }
+  .searchDivider { width: auto; height: 1px; margin: 0 12px; }
+  .searchBtn { margin: 12px; }
+  .catGrid { grid-template-columns: repeat(3, 1fr); }
+  .steps::before { display: none; }
+  .steps { grid-template-columns: 1fr; gap: 32px; }
+  .ctaCard { padding: 40px 28px; }
+  .ctaContent h2 { font-size: 1.6rem; }
+  .vehiclesGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .catGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- Visuel de marque du hero --- */
+/* `.hero` est un conteneur flex : un enfant en flux normal se placerait à côté
+   du contenu au lieu de le couvrir. D'où le positionnement absolu. */
+.heroVisuel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroVisuelImage {
+  object-fit: cover;
+  /* Les véhicules sont au centre-bas de l'image : c'est ce point qu'on garde
+     visible quand le cadrage se resserre. */
+  object-position: center 65%;
+}
+
+/*
+ * Voile ascendant : dense en bas, s'effaçant vers le haut.
+ *
+ * Un seul dégradé, volontairement. La version d'origine superposait un voile
+ * horizontal et un vertical, dont les opacités se multipliaient — près de 0,9
+ * pile sur les véhicules, qui disparaissaient.
+ */
+.heroVoile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 10, 18, 0.92) 0%,
+    rgba(8, 10, 18, 0.78) 22%,
+    rgba(8, 10, 18, 0.45) 55%,
+    rgba(8, 10, 18, 0.18) 100%
+  );
+}
+
+/* Le contenu passe sur fond sombre : sans ces reprises, le titre et les
+   statistiques resteraient en gris foncé, illisibles sur l'image. */
+.hero:has(.heroVisuel) .heroTitle,
+.hero:has(.heroVisuel) .heroStat strong {
+  color: #fff;
+}
+
+.hero:has(.heroVisuel) .heroSubtitle,
+.hero:has(.heroVisuel) .heroStat span {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero:has(.heroVisuel) .heroStatDiv {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 720px) {
+  /*
+   * Sur écran étroit, couvrir toute la section avec une image 2,7:1 ne
+   * laissait voir qu'un capot : le recadrage mangeait presque toute la
+   * largeur. Le visuel devient donc un bandeau ancré en bas, à son format
+   * naturel — les trois véhicules apparaissent en entier, et le texte se pose
+   * sur le fond sombre au-dessus.
+   */
+  .hero:has(.heroVisuel) {
+    min-height: auto;
+    padding: 0 0 48px;
+    background: #0a0c14;
+  }
+
+  /* Bandeau en tête. Pas de décalage de navbar ici : la section commence déjà
+     sous la barre fixe, l'ajouter creusait un vide de 68 px au-dessus. */
+  .heroVisuel {
+    inset: 0 0 auto 0;
+    height: auto;
+    aspect-ratio: 1685 / 624;
+  }
+
+  /* Le dégradé descend vers le fond sombre : clair sur les véhicules, dense au
+     bas du bandeau pour le raccorder au texte qui suit. */
+  .heroVoile {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 10, 18, 0.12) 0%,
+      rgba(8, 10, 18, 0.3) 55%,
+      rgba(8, 10, 18, 0.95) 100%
+    );
+  }
+
+  /* Réserve la place du bandeau au-dessus du contenu. */
+  .hero:has(.heroVisuel) .heroContent {
+    padding-top: calc(100vw / 2.7 + 20px);
+  }
+}

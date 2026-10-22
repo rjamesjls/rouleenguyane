@@ -1,0 +1,59 @@
+.header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 32px 0 24px; }
+.title { font-size: 1.75rem; font-weight: 800; color: var(--text); }
+.subtitle { color: var(--text-secondary); margin-top: 4px; }
+
+.kpiGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.kpiCard { padding: 20px; position: relative; }
+.kpiUrgent { border-color: var(--warning) !important; }
+.kpiTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.kpiIcon { font-size: 1.5rem; }
+.kpiValue { font-size: 1.6rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.kpiLabel { font-size: 0.8rem; color: var(--text-muted); }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1.5px solid var(--border); margin-bottom: 28px; }
+.tab { padding: 12px 20px; font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: var(--transition); }
+.tab:hover { color: var(--text); }
+.tabActive { color: var(--primary) !important; border-bottom-color: var(--primary) !important; }
+.tabContent { padding-bottom: 64px; }
+
+/* Reservations */
+.resList { display: flex; flex-direction: column; gap: 16px; }
+.resCard { padding: 20px; }
+.resTop { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.clientInfo { display: flex; align-items: center; gap: 12px; }
+.clientName { font-weight: 700; color: var(--text); }
+.clientPhone { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
+.resDetails { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.resDetailItem { display: flex; flex-direction: column; gap: 4px; font-size: 0.825rem; }
+.resDetailItem span { color: var(--text-muted); }
+.resDetailItem strong { color: var(--text); }
+.clientNote { padding: 10px 12px; background: var(--bg-subtle); border-radius: var(--radius-sm); font-size: 0.825rem; color: var(--text-secondary); border-left: 3px solid var(--primary); margin-bottom: 12px; }
+.resActions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+
+/* Vehicles */
+.vehiclesList { display: flex; flex-direction: column; gap: 12px; }
+.vehicleRow { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.vehicleRowLeft { display: flex; align-items: center; gap: 14px; }
+.vehicleRowIcon { width: 48px; height: 48px; background: var(--primary-bg); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+.vehicleRowName { font-weight: 700; color: var(--text); }
+.vehicleYear { font-weight: 400; color: var(--text-muted); }
+.vehicleRowMeta { font-size: 0.8rem; color: var(--text-secondary); margin-top: 3px; }
+.vehicleRowRight { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* Stats */
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.statCard { padding: 24px; text-align: center; }
+.statValue { font-size: 1.6rem; font-weight: 900; color: var(--text); }
+.statLabel { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; }
+.statSub { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+.chartPlaceholder { padding: 60px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+@media (max-width: 1024px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .resDetails { grid-template-columns: 1fr; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .tabs { overflow-x: auto; }
+}

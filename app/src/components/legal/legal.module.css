@@ -1,0 +1,129 @@
+.entete {
+  margin-bottom: 24px;
+}
+
+.titre {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.maj {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+.onglet {
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.onglet:hover {
+  color: var(--primary);
+}
+
+.ongletActif {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Colonne de lecture : au-delà de ~75 caractères la lecture décroche. */
+.contenu {
+  max-width: 68ch;
+  padding-bottom: 64px;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.contenu h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 36px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.contenu h2:first-child { margin-top: 0; }
+
+.contenu h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 24px 0 8px;
+}
+
+.contenu p { margin-bottom: 12px; }
+
+.contenu ul {
+  margin: 0 0 14px 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.contenu li { margin-bottom: 6px; }
+
+.contenu strong { color: var(--text); }
+
+.contenu a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.contenu table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+}
+
+.contenu th,
+.contenu td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.contenu th {
+  background: var(--bg-subtle);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Encadré d'avertissement — usage interne (relecture juridique). */
+.avis {
+  margin: 0 0 28px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--warning);
+  background: color-mix(in srgb, var(--warning) 10%, transparent);
+  font-size: 0.875rem;
+}
+
+.aCompleter {
+  background: color-mix(in srgb, var(--danger) 18%, transparent);
+  color: var(--danger);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-weight: 600;
+  font-size: 0.85em;
+  /* Pas de `nowrap` : certains marqueurs portent une explication longue et
+     débordaient horizontalement de la colonne de lecture. */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

@@ -1,0 +1,99 @@
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-muted); padding: 24px 0 0; flex-wrap: wrap; }
+.breadcrumb a { color: var(--text-secondary); transition: var(--transition); }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb span { color: var(--border-strong); }
+
+.layout { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; padding-bottom: 80px; margin-top: 20px; }
+.left { display: flex; flex-direction: column; gap: 24px; }
+.right { position: sticky; top: calc(var(--navbar-h) + 16px); }
+
+/* Gallery */
+.gallery { border-radius: var(--radius-xl); overflow: hidden; }
+.mainPhoto { aspect-ratio: 16/9; overflow: hidden; background: var(--bg-subtle); position: relative; }
+.mainPhoto img { width: 100%; height: 100%; object-fit: cover; }
+.photoPlaceholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.unavailableOverlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem; backdrop-filter: blur(4px); }
+.thumbs { display: flex; gap: 8px; padding: 8px 0 0; }
+.thumb { width: 80px; height: 56px; overflow: hidden; border-radius: var(--radius-sm); border: 2px solid transparent; transition: var(--transition); flex-shrink: 0; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumbActive { border-color: var(--primary); }
+
+/* Info card */
+.infoCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.infoHeader { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.vehicleType { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.vehicleName { font-size: 1.8rem; font-weight: 900; color: var(--text); letter-spacing: -0.5px; }
+.vehicleMeta { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--text-secondary); margin-top: 6px; flex-wrap: wrap; }
+
+.priceBlock { text-align: right; flex-shrink: 0; }
+.priceMain { display: block; font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1; }
+.priceLabel { font-size: 0.8rem; color: var(--text-muted); }
+.caution { display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+/* Specs */
+.specsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.specItem { display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--bg-subtle); border-radius: var(--radius); }
+.specIcon { font-size: 1.2rem; flex-shrink: 0; }
+.specLabel { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.specValue { font-size: 0.875rem; font-weight: 700; color: var(--text); margin-top: 2px; }
+
+/* Sections */
+.section { border-top: 1px solid var(--border); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.section h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.section p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+/* Loueur */
+.loueurCard { background: var(--bg-subtle); border-radius: var(--radius-lg); padding: 20px; border-top: 1px solid var(--border); }
+.loueurInfo { display: flex; gap: 16px; }
+.loueurName { font-weight: 700; font-size: 1rem; color: var(--text); }
+.loueurBio { font-size: 0.825rem; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+
+/* Reviews */
+.reviews { display: flex; flex-direction: column; gap: 16px; }
+.reviewItem { padding: 16px; background: var(--bg-subtle); border-radius: var(--radius); }
+.reviewHeader { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+.reviewAuthor { font-weight: 600; font-size: 0.875rem; color: var(--text); }
+.reviewStars { font-size: 0.8rem; display: flex; align-items: center; gap: 6px; margin-top: 2px; color: var(--text-muted); }
+.reviewText { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* Reservation card */
+.reservationCard { padding: 24px; }
+.cardHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.cardPrice { font-size: 1.5rem; font-weight: 900; color: var(--text); }
+.cardPrice small { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+.cardRating { font-size: 0.875rem; font-weight: 600; }
+
+.resForm { display: flex; flex-direction: column; gap: 14px; }
+.dateGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.prixBreakdown { background: var(--bg-subtle); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.prixRow { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-secondary); }
+.prixTotal { border-top: 1px solid var(--border); padding-top: 8px; color: var(--text); }
+.resNote { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+
+/* Confirm */
+.confirmStep { display: flex; flex-direction: column; gap: 8px; }
+.confirmStep h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.confirmDetails { background: var(--bg-subtle); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.confirmRow { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-secondary); }
+.confirmTotal { border-top: 1px solid var(--border); padding-top: 10px; color: var(--text); font-size: 1rem; }
+.cautionNote { font-size: 0.78rem; color: var(--text-muted); }
+.divider { height: 1px; background: var(--border); }
+
+/* Success */
+.successState { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 16px 0; }
+.successIcon { font-size: 3rem; }
+.successState h3 { font-size: 1.2rem; font-weight: 700; color: var(--text); }
+.successState p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* Contact */
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .right { position: static; }
+  .specsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .dateGrid { grid-template-columns: 1fr; }
+  .specsGrid { grid-template-columns: 1fr 1fr; }
+}

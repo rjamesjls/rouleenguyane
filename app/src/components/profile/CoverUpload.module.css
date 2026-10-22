@@ -1,0 +1,66 @@
+/* Même proportion que le bandeau public : le cadrage vu ici est celui
+   qui s'affichera sur le profil. */
+.apercu {
+  position: relative;
+  aspect-ratio: 4 / 1;
+  min-height: 110px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.apercu img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.apercuEnCours { opacity: 0.5; }
+
+.degrade {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(700px 200px at 15% 120%, rgba(26, 122, 74, 0.55), transparent 70%),
+    linear-gradient(115deg, var(--primary-dark) 0%, var(--primary) 45%, var(--primary-light) 100%);
+}
+
+.degradeTexte {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.actions p {
+  width: 100%;
+  margin: 0;
+}
+
+.succes {
+  font-size: 0.875rem;
+  color: #10B981;
+}

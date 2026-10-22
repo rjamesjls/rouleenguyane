@@ -1,0 +1,55 @@
+.header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 32px 0 24px; }
+.title { font-size: 1.75rem; font-weight: 800; color: var(--text); }
+.subtitle { color: var(--text-secondary); margin-top: 4px; }
+
+.kpiGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 32px; }
+.kpiCard { padding: 16px; text-align: center; position: relative; }
+.kpiUrgent { border-color: var(--warning) !important; }
+.kpiIcon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.kpiValue { font-size: 1.4rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.kpiLabel { font-size: 0.72rem; color: var(--text-muted); }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1.5px solid var(--border); margin-bottom: 28px; }
+.tab { padding: 12px 20px; font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: var(--transition); }
+.tab:hover { color: var(--text); }
+.tabActive { color: var(--primary) !important; border-bottom-color: var(--primary) !important; }
+.tabContent { padding-bottom: 64px; }
+
+/* Loueurs */
+.loueursList { display: flex; flex-direction: column; gap: 16px; }
+.loueurCard { padding: 20px; }
+.loueurTop { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+.loueurInfo { display: flex; gap: 14px; align-items: flex-start; }
+.loueurName { font-weight: 700; color: var(--text); }
+.loueurEmail { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
+.loueurDate { text-align: right; }
+.loueurDate p { font-size: 0.75rem; color: var(--text-muted); }
+.loueurDate strong { font-size: 0.875rem; color: var(--text); }
+.siret { font-size: 0.8rem; color: var(--text-secondary); padding: 8px 12px; background: var(--bg-subtle); border-radius: var(--radius-sm); margin-bottom: 12px; display: inline-block; }
+.adminActions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--border); }
+
+/* Table */
+.searchBar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.tableWrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.table { width: 100%; border-collapse: collapse; }
+.table th { padding: 12px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); background: var(--bg-subtle); text-align: left; white-space: nowrap; }
+.table td { padding: 14px 16px; font-size: 0.875rem; color: var(--text); border-top: 1px solid var(--border); }
+.table tr:hover td { background: var(--bg-subtle); }
+.resId { font-size: 0.78rem; background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; }
+
+/* Stats */
+.statsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.statCard { padding: 24px; }
+.statValue { font-size: 1.6rem; font-weight: 900; color: var(--text); }
+.statLabel { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; }
+.statSub { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+.chartBox { padding: 48px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; }
+
+@media (max-width: 1200px) {
+  .kpiGrid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .statsGrid { grid-template-columns: 1fr; }
+  .tabs { overflow-x: auto; }
+}

@@ -1,0 +1,139 @@
+.pageHeader { padding: 32px 0 24px; }
+.title { font-size: 1.75rem; font-weight: 800; color: var(--text); }
+.subtitle { color: var(--text-secondary); margin-top: 4px; }
+
+/* Stepper */
+.stepper { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
+.stepperItem { display: flex; align-items: center; gap: 8px; flex: 1; }
+.stepperItem:not(:last-child)::after {
+  content: ''; flex: 1; height: 2px;
+  background: var(--border); margin: 0 8px;
+}
+.stepperActive .stepperCircle { background: var(--primary); border-color: var(--primary); color: white; }
+.stepperActive .stepperLabel { color: var(--primary); font-weight: 700; }
+.stepperDone .stepperCircle { background: var(--success); border-color: var(--success); color: white; }
+.stepperCircle {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--border); background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700; color: var(--text-muted); flex-shrink: 0;
+  transition: var(--transition);
+}
+.stepperLabel { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; transition: var(--transition); }
+
+/* Form */
+.formCard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); padding: 40px; margin-bottom: 64px;
+}
+.stepContent { display: flex; flex-direction: column; gap: 20px; }
+.stepTitle { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+
+/* Type buttons */
+.typeGrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.typeBtn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 8px; border-radius: var(--radius); border: 1.5px solid var(--border);
+  background: var(--bg); transition: var(--transition); cursor: pointer; font-size: 0.78rem; font-weight: 600;
+}
+.typeBtn span:first-child { font-size: 1.5rem; }
+.typeBtn:hover { border-color: var(--primary); color: var(--primary); }
+.typeBtnActive { border-color: var(--primary) !important; background: var(--primary-bg) !important; color: var(--primary) !important; }
+
+/* Checkboxes */
+.checkboxGroup { display: flex; gap: 12px; flex-wrap: wrap; }
+.checkbox {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 10px 16px; border-radius: var(--radius); border: 1.5px solid var(--border);
+  font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); transition: var(--transition);
+}
+.checkbox input { display: none; }
+.checkbox span:first-of-type { font-size: 1.1rem; }
+.checkboxActive { border-color: var(--primary); background: var(--primary-bg); color: var(--primary); }
+
+/* Photo upload */
+.photoUploadSection { display: flex; flex-direction: column; gap: 12px; }
+.photoUploadSection h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.photoUploadSection p { font-size: 0.825rem; color: var(--text-secondary); }
+.photoGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.photoSlot {
+  aspect-ratio: 4/3; border: 2px dashed var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  color: var(--text-muted); font-size: 0.75rem; cursor: pointer; transition: var(--transition);
+}
+.photoSlot span:first-child { font-size: 1.5rem; }
+.photoSlot:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
+/* Le focus clavier arrive sur l'input caché : on le rend visible sur la zone. */
+.photoSlot:focus-within { border-color: var(--primary); color: var(--primary); background: var(--primary-bg); }
+
+.photoPreview {
+  position: relative; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+}
+.photoPreview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photoBadge {
+  position: absolute; bottom: 6px; left: 6px; padding: 2px 8px; border-radius: 999px;
+  background: var(--primary); color: #fff; font-size: 0.7rem; font-weight: 600;
+}
+.photoRemove {
+  position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border: none;
+  border-radius: 50%; background: rgba(0, 0, 0, 0.6); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
+  transition: var(--transition);
+}
+.photoRemove:hover { background: var(--danger, #EF4444); }
+
+/* Summary */
+.summary { padding: 20px; background: var(--bg-subtle); border-radius: var(--radius-lg); }
+.summary h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.summaryGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.summaryGrid div { display: flex; flex-direction: column; gap: 2px; }
+.summaryGrid span { font-size: 0.75rem; color: var(--text-muted); }
+.summaryGrid strong { font-size: 0.875rem; color: var(--text); }
+
+/* Navigation */
+.formNav { display: flex; align-items: center; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+@media (max-width: 768px) {
+  .formCard { padding: 24px 16px; }
+  .typeGrid { grid-template-columns: repeat(3, 1fr); }
+  .photoGrid { grid-template-columns: repeat(2, 1fr); }
+  .stepper { gap: 4px; }
+  .stepperLabel { display: none; }
+}
+
+/* --- Sélecteur de couleur --- */
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.colorBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.colorBtn:hover { border-color: var(--primary); }
+
+.colorBtnActive {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  font-weight: 600;
+}
+
+.colorDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

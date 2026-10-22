@@ -1,0 +1,56 @@
+.entete { margin-bottom: 24px; }
+
+.titre {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.sousTitre {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.carte {
+  padding: 24px;
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+
+.sectionTitre {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.texte {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.infoLigne {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9375rem;
+}
+
+.infoLigne:last-child { border-bottom: none; }
+
+.infoLigne dt { color: var(--text-secondary); }
+
+.infoLigne dd {
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}

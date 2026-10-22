@@ -1,0 +1,212 @@
+.entete { margin-bottom: 18px; }
+
+.titre {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.signe {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--success);
+  margin-top: 4px;
+}
+
+.attente {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.avis {
+  max-width: 780px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--info);
+  background: color-mix(in srgb, var(--info) 10%, transparent);
+  font-size: 0.875rem;
+}
+
+.carte {
+  padding: 20px;
+  margin-bottom: 16px;
+  max-width: 780px;
+}
+
+.section {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dateSection {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.cle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.valeur {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.detail {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.texteLibre {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  white-space: pre-wrap;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table td {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.table td:first-child { color: var(--text-secondary); }
+.table td:last-child { text-align: right; font-weight: 600; }
+.table tr:last-child td { border-bottom: none; }
+
+.total td { border-top: 2px solid var(--border-strong); }
+
+.avisCaution {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--warning);
+  background: color-mix(in srgb, var(--warning) 10%, transparent);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+/* --- Photos --- */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* --- Signatures --- */
+.signatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.signature img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  /* Les signatures sont tracées en noir sur fond transparent : sans fond
+     blanc explicite, elles disparaissent en thème sombre. */
+  background: #fff;
+}
+
+.pied {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 780px;
+  padding-bottom: 48px;
+}
+
+/* --- Clauses --- */
+.clause { margin-bottom: 16px; }
+.clause:last-child { margin-bottom: 0; }
+
+.clauseTitre {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.clauseTexte {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Impression — c'est ce rendu qui devient le PDF.
+   ───────────────────────────────────────────────────────────── */
+@media print {
+  /* La page conserve les couleurs de fond des encadrés, sinon les
+     avertissements sur la caution disparaissent à l'impression. */
+  .carte,
+  .avis,
+  .avisCaution {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .carte {
+    max-width: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 12px;
+    /* Une section ne doit pas être coupée en deux entre deux pages. */
+    break-inside: avoid;
+  }
+
+  .titre { font-size: 1.4rem; }
+
+  .clauseTexte,
+  .texteLibre,
+  .table { font-size: 11px; }
+
+  .clause { break-inside: avoid; }
+
+  .photos { grid-template-columns: repeat(4, 1fr); }
+  .photo { break-inside: avoid; }
+
+  .signatures { break-inside: avoid; }
+
+  /* Ni navigation, ni boutons dans le document imprimé. */
+  .pied { display: none; }
+}
